@@ -1,0 +1,7 @@
+
+Speed of sound calculator - https://www.mt-oceanography.info/Utilities/soundspeed.html
+Speed of sound equations - http://resource.npl.co.uk/acoustics/techguides/soundseawater/content.html
+Density calculator - https://www.mt-oceanography.info/Utilities/density.html
+Sound absorption calculator - http://resource.npl.co.uk/acoustics/techguides/seaabsorption/
+Sound absorption (formulas) - http://resource.npl.co.uk/acoustics/techguides/seaabsorption/physics.html
+
