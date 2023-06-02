@@ -110,13 +110,6 @@ function alpha = seawaterAbsorption_AinslieMcColm1998(t,s,pH,z,f,out)
 %
 %**************************************************************************
 
-% Convert to column vectors
-t = t(:);
-s = s(:);
-z = z(:);
-pH = pH(:);
-f = f(:);
-
 % Variables and Units Conversion
 t = 1.00024*t; % temperature conversion from ITS-90 to IPTS-68 [°C]
 z = z*1e-3; % depth below sea surface [km]

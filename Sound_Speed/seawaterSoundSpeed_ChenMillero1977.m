@@ -10,10 +10,10 @@ function c = seawaterSoundSpeed_ChenMillero1977(t,s,p,varargin)
 %  version proposed by Wung & Zhu (1995).
 %
 %  INPUT VARIABLES
-%  - t: temperature, in ITS-90 (vector) [ºC]
-%  - s: salinity (vector) [ppt]
-%  - p: pressure above atmospheric pressure (vector) [dbar] (1 dbar = 10
-%    kPa corresponds to a depth increase in seawater of ~1 m).
+%  - t: temperature, in ITS-90 (vector or matrix) [ºC]
+%  - s: salinity (vector or matrix) [ppt]
+%  - p: pressure above atmospheric pressure (vector or matrix) [dbar] 
+%    (1 dbar = 10 kPa corresponds to a depth increase in seawater of ~1 m).
 %  - eq (varargin{1}): string specifying the sound speed equation. Options
 %    ¬ 'une': uses the original formulation from Chen & Millero, as it
 %      appears in the UNESCO Technical Paper No. 44 (IPTS-68).
@@ -23,7 +23,7 @@ function c = seawaterSoundSpeed_ChenMillero1977(t,s,p,varargin)
 %    NOTE: any input ¦t¦, ¦s¦ or ¦p¦ can either be a vector or a number.
 %        
 %  OUTPUT VARIABLES
-%  - c: speed of sound in seawater (vector) [m s-1]
+%  - c: speed of sound in seawater (vector or matrix) [m s-1]
 %
 %  INTERNALLY CALLED FUNCTIONS
 %  - None
@@ -209,28 +209,26 @@ switch eq
     otherwise
         error('Invalid string for input parameter EQ')
 end
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p = p(:);
-        
+       
 % Variables and Units Conversion
 p = p/10; % pressure [bar]  
 
-% Speed of Sound Equation
+% Equation for the Speed of Sound
 % Term s^2
 D = D00 + D10*p;
+
 % Term s^(3/2)
 B1 = B10 + B11*t;
 B0 = B00 + B01*t;
 B  = B0 + B1.*p;
+
 % Term s^1
 A3 =   (A32*t + A31).*t + A30;
 A2 =  ((A23*t + A22).*t + A21).*t + A20;
 A1 = (((A14*t + A13).*t + A12).*t + A11).*t + A10;
 A0 = (((A04*t + A03).*t + A02).*t + A01).*t + A00;
 A  = ((A3.*p + A2).*p + A1).*p + A0;
+
 % Term s^0
 C3 =    (C32.*t + C31).*t + C30;
 C2 =  (((C24.*t + C23).*t + C22).*t + C21).*t + C20;

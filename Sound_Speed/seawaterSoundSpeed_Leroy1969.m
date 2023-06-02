@@ -23,7 +23,7 @@ function c = seawaterSoundSpeed_Leroy1969(t,s,z,lat,varargin)
 %  - ac (varargin{2}): string specifying the accuracy of selected equation.
 %    ¬ 'sim': simplified, 1/5 terms (c = c0)
 %    ¬ 'bas': basic, 3/5 terms (c = c0 + ca + cb)
-%    ¬ 'com': complete, 5/5 terms (c = c0 + ca + cb + cc + cd)
+%    ¬ 'com': complete, 5/5 terms (c = c0 + ca + cb + cc + cd) [DEFAULT]
 %
 %    NOTE: any input ¦t¦, ¦s¦ or ¦z¦ can either be a vector or a number.
 %        
@@ -114,11 +114,6 @@ switch nargin
     otherwise
         error('Too many input arguments')
 end
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-z = z(:);
 
 % Variables and Units Conversion
 t = (-0.99956 + sqrt(0.9991202 + 1.76e-5*1.00024*t))/(8.8e-6); % temperature in IPTS-48 scale [ºC]

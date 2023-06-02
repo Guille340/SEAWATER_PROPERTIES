@@ -56,11 +56,6 @@ function c = seawaterSoundSpeed_Ross1978(t,s,p)
 %
 %**************************************************************************
 
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p = p(:);
-
 % Variables and Units Conversion
 t = 1.00024*t; % temperature in IPTS-68 scale [ºC]
 S = s - 35; % salinity referred to 35 ppt

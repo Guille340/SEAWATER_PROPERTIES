@@ -62,11 +62,6 @@ function c = seawaterSoundSpeed_Kinsler2000(t,s,p)
 %  20 Nov 2017
 %
 %**************************************************************************
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p = p(:);
         
 % Variables and Units Conversion
 t = 1.00024*t; % temperature in IPTS-68 scale [ºC]

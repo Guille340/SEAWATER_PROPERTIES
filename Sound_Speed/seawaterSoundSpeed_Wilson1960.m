@@ -92,11 +92,6 @@ switch nargin
         error('Too many input arguments')
 end
 
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p =  p(:);
-
 % Variables and Units Conversion
 t = (-0.99956 + sqrt(0.9991202 + 1.76e-5*1.00024*t))/(8.8e-6); % temperature in IPTS-48 scale [ºC]
 p = p/9.80665; % pressure [kg cm-2]

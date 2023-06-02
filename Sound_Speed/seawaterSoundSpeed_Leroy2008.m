@@ -91,11 +91,6 @@ function c = seawaterSoundSpeed_Leroy2008(t,s,z,lat)
 %
 %**************************************************************************
 
-% Convert to column vectors
-t = t(:);
-s = s(:);
-z = z(:);
-
 % Speed of Sound Equation
 c = 1402.5 + 5*t - 5.44e-2*t.^2 + 2.1e-4*t.^3 + 1.33*s - 1.23e-2*s.*t ...
     + 8.7e-5*s.*t.^2 + 1.56e-2*z + 2.55e-7*z.^2 - 7.3e-12*z.^3 + 1.2e-6*z.*(lat - 45)...

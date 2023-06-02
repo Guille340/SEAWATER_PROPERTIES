@@ -8,10 +8,10 @@ function c = seawaterSoundSpeed_DelGrosso1974(t,s,p,varargin)
 %  equation (DelGrosso, 1974) or its revised version (Wong & Zhu, 1995).
 %
 %  INPUT VARIABLES
-%  - t: temperature, in ITS-90 (vector) [ºC]
-%  - s: salinity (vector) [ppt]
-%  - p: gauge pressure, above atmospheric pressure (vector) [dbar] (1 dbar = 10
-%    kPa corresponds to a depth increase in seawater of ~1 m).
+%  - t: temperature, in ITS-90 (vector or matrix) [ºC]
+%  - s: salinity (vector or matrix) [ppt]
+%  - p: gauge pressure, above atmospheric pressure (vector or matrix) [dbar] 
+%    (1 dbar = 10 kPa corresponds to a depth increase in seawater of ~1 m).
 %  - eq (varargin{1}): string specifying the sound speed equation. Options
 %    ¬ 'gro': uses the original formulation from Del Grosso, 1974 (IPTS-68)
 %    ¬ 'won': uses the Wong & Zhu (1995) formulation of Del Grosso equation
@@ -20,7 +20,7 @@ function c = seawaterSoundSpeed_DelGrosso1974(t,s,p,varargin)
 %    NOTE: any input ¦t¦, ¦s¦ or ¦p¦ can either be a vector or a number.
 %        
 %  OUTPUT VARIABLES
-%  - c: speed of sound in seawater (vector) [m s-1]
+%  - c: speed of sound in seawater (vector or matrix) [m s-1]
 %
 %  INTERNALLY CALLED FUNCTIONS
 %  - None
@@ -149,12 +149,7 @@ switch eq
         error('Invalid string for input parameter ¦eq¦')
         
 end
-      
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p = p(:);
-        
+       
 % Variables and Units Conversion
 p = p/9.80665; % pressure [kg cm-2]    
 

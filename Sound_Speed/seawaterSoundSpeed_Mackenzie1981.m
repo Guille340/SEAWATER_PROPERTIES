@@ -50,11 +50,6 @@ function c = seawaterSoundSpeed_Mackenzie1981(t,s,z)
 %  21 Nov 2017
 %
 %**************************************************************************
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-z = z(:);
         
 % Variables and Units Conversion
 t = 1.00024*t; % temperature in IPTS-68 scale [ºC]

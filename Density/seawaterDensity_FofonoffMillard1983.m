@@ -9,15 +9,15 @@ function rho = seawaterDensity_FofonoffMillard1983(t,s,p)
 %  1983).
 %
 %  INPUT VARIABLES
-%  - t: temperature, in ITS-90 (vector) [ºC]
-%  - s: salinity (vector) [ppt]
-%  - p: gauge pressure, above atmospheric pressure (vector) [dbar] 
+%  - t: temperature, in ITS-90 (vector or matrix) [ºC]
+%  - s: salinity (vector or matrix) [ppt]
+%  - p: gauge pressure, above atmospheric pressure (vector or matrix) [dbar] 
 %    (1 dbar = 10 kPa corresponds to a depth increase in seawater of ~1 m)
 %
 %    NOTE: any input ¦t¦, ¦s¦ or ¦p¦ can either be a vector or a number.
 %        
 %  OUTPUT VARIABLES
-%  - rho: density of seawater [kg m-3]
+%  - rho: density of seawater (vector or matrix) [kg m-3]
 %
 %  INTERNALLY CALLED FUNCTIONS
 %  - None
@@ -51,11 +51,6 @@ function rho = seawaterDensity_FofonoffMillard1983(t,s,p)
 %  29 Nov 2017
 %
 %**************************************************************************
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-p = p(:);
 
 % Variables and Units Conversion
 t = 1.00024*t; % temperature conversion from ITS-90 to IPTS-68 [°C]

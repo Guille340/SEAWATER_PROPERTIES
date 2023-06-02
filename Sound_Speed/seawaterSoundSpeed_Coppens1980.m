@@ -15,9 +15,9 @@ function c = seawaterSoundSpeed_Coppens1980(t,s,z,lat,varargin)
 %  waterways navigable by medium-sized ships (Leroy, 1969).
 %   
 %  INPUT VARIABLES
-%  - t: temperature, in ITS-90 (vector) [ºC]
-%  - s: salinity (vector) [ppt]
-%  - z: depth below sea surface (vector) [m]
+%  - t: temperature, in ITS-90 (vector or matrix) [ºC]
+%  - s: salinity (vector or matrix) [ppt]
+%  - z: depth below sea surface (vector or matrix) [m]
 %  - lat: latitude [deg]. The latitude affects the depth values used to 
 %    calculate ¦c¦. If the latitude is not known, use ¦lat¦ = 45 is an
 %    approximate estimation of the sound speed (for ¦lat¦ = 45 the exact 
@@ -35,7 +35,7 @@ function c = seawaterSoundSpeed_Coppens1980(t,s,z,lat,varargin)
 %    NOTE: any input ¦t¦, ¦s¦ or ¦z¦ can either be a vector or a number.
 %        
 %  OUTPUT VARIABLES
-%  - c: speed of sound in seawater (vector) [m s-1]
+%  - c: speed of sound in seawater (vector or matrix) [m s-1]
 %
 %  INTERNALLY CALLED FUNCTIONS
 %  - None
@@ -102,12 +102,7 @@ switch nargin
     otherwise
         error('Too many input arguments')
 end
-
-% Convert to column vectors
-t = t(:);
-s = s(:);
-z = z(:);
-        
+       
 % Variables and Units Conversion
 z = z*1e-3; % depth [km]
 lat = lat*pi/180; % latitude [rad]
